@@ -32,7 +32,7 @@ text: `Committer: ${user_name}`,
 },
 ],
 };
-
+console.log(message)
 // Send message to Discord
 await axios.post(DISCORD_WEBHOOK_URL, message);
 }
@@ -47,6 +47,5 @@ res.status(500).send('Error processing webhook.');
  
 // Start the server
 app.listen(PORT, () => {
-console.log(message)
 console.log(`Server is running on http://localhost:${PORT}`);
 });
