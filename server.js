@@ -4,7 +4,7 @@ const axios = require('axios');
  
 const app = express();
 const PORT = 3000;
- 
+// https://discord.com/api/webhooks/1308812609625002156/-xT_RMWfUdNDylCiUQbX_v2tFJhS1cTHMx04-Fwa6fbi4emTNu9tROD4g64IeSB-9Ahj
 // Replace with your Discord webhook URL
 const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1308812609625002156/-xT_RMWfUdNDylCiUQbX_v2tFJhS1cTHMx04-Fwa6fbi4emTNu9tROD4g64IeSB-9Ahj';
  
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.post('/gitlab-webhook', async (req, res) => {
 try {
 const { object_kind, commits, repository, user_name } = req.body;
- 
+console.log()
 if (object_kind === 'push' && commits) {
 for (const commit of commits) {
 const message = {
@@ -32,7 +32,7 @@ text: `Committer: ${user_name}`,
 },
 ],
 };
- 
+
 // Send message to Discord
 await axios.post(DISCORD_WEBHOOK_URL, message);
 }
@@ -47,5 +47,6 @@ res.status(500).send('Error processing webhook.');
  
 // Start the server
 app.listen(PORT, () => {
+console.log(message)
 console.log(`Server is running on http://localhost:${PORT}`);
 });
