@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.post('/gitlab-webhook', async (req, res) => {
 try {
 const { object_kind, commits, repository, user_name } = req.body;
-console.log()
+console.log("COMMITED->", commits)
 if (object_kind === 'push' && commits) {
 for (const commit of commits) {
 const message = {
