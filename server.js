@@ -22,8 +22,8 @@ const message = {
 content: null,
 embeds: [
 {
-title: `New Commit in ${repository.name}`,
-description: `**Message**: ${commit.message}\n**Author**: ${commit.author.name}\n**Branch**: ${req.body.ref.replace('refs/heads/', '')}\n**[View Commit](${commit.url})**`,
+title: `New Commit in ${repository.name} Project`,
+description: `**Message**: ${commit.message}\n**Developer**: ${commit.author.name}\n**Branch**: ${req.body.ref.replace('refs/heads/', '')}\n**[View Commit](${commit.url})**`,
 color: 3066993, // Blue color
 timestamp: new Date(commit.timestamp),
 footer: {
